@@ -1,8 +1,8 @@
 package main;
 
-import ui.MainFrame;
+import ui_swing.MainFrame;
 
-public class Start {
+public class SwingStart {
 
 	public static void main(String[] args) {
 		MainFrame frame = new MainFrame();

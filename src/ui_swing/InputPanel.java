@@ -1,4 +1,4 @@
-package ui;
+package ui_swing;
 
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
@@ -18,6 +18,7 @@ public class InputPanel extends JPanel {
 
 		arraySizePane = new JPanel();
 		arraySizeLabel = new JLabel("Array Size");
+		arraySizeLabel.setToolTipText("Size of the array you want sorted");
 		arraySizeCBox = new JComboBox<Integer>(sizes);
 
 		arraySizePane.add(arraySizeLabel);

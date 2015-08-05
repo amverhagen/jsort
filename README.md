@@ -1,2 +1,2 @@
 # jsort
-Jframe application that displays the results of different sorting algorithms.
+Jframe/Fx application that displays the results of different sorting algorithms.
