@@ -1,5 +1,11 @@
 package ui;
 
-public class InputPanel {
+import javax.swing.JPanel;
 
+public class InputPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+
+	public InputPanel() {
+		
+	}
 }
