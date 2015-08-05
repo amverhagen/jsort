@@ -13,10 +13,12 @@ public class MainFrame extends JFrame {
 		this.setTitle("Sort");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		inputPane = new InputPanel();
 	}
 
-	public void start() {
-		inputPane = new InputPanel();
+	public void setToInput() {
 		this.setContentPane(inputPane);
+		this.revalidate();
 	}
 }
