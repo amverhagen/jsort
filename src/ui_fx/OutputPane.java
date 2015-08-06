@@ -5,11 +5,13 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
+	ListView<String> list;
 	SortApp app;
 	Label title;
 	Label arrayLabel;
@@ -28,8 +30,8 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 
 		title = new Label("Init Array:");
 		arrayLabel = new Label("[]");
-		scrollPane = new ScrollPane();
-		scrollPane.setPrefSize(300, 200);
+		list = new ListView<String>();
+		list.setPrefSize(300, 200);
 		stepButton = new Button("Step");
 		finishButton = new Button("Finish");
 		newButton = new Button("New");
@@ -42,7 +44,7 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 
 		this.add(title, 0, 0);
 		this.add(arrayLabel, 0, 1);
-		this.add(scrollPane, 0, 2, 1, 1);
+		this.add(list, 0, 2, 1, 1);
 		this.add(buttonBox, 1, 2);
 
 		stepButton.setOnAction(this);
