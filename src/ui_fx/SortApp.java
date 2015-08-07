@@ -1,5 +1,9 @@
 package ui_fx;
 
+import java.util.ArrayList;
+
+import sorters.Bubble;
+import tools.ArrayCreator;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,6 +12,8 @@ public class SortApp extends Application {
 	Scene scene;
 	InputPane inputPane;
 	OutputPane outputPane;
+	int[] unsorted;
+	ArrayList<String> sortedStepList;
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -30,6 +36,9 @@ public class SortApp extends Application {
 	}
 
 	protected void setToOutput() {
+		unsorted = ArrayCreator.getRandomIntArray(inputPane.getSelectedSize());
+		sortedStepList = Bubble.getSortedStepList(unsorted);
+		outputPane.setSortedStepList(sortedStepList);
 		scene.setRoot(outputPane);
 	}
 }

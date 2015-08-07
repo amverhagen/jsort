@@ -1,5 +1,7 @@
 package ui_fx;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,8 +13,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
+	ArrayList<String> sortedList;
 	ListView<String> list;
 	SortApp app;
+
 	Label title;
 	Label arrayLabel;
 	ScrollPane scrollPane;
@@ -23,6 +27,7 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 
 	public OutputPane(SortApp app) {
 		super();
+
 		this.app = app;
 		this.setAlignment(Pos.CENTER);
 		this.setHgap(10);
@@ -69,6 +74,10 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 
 	private void finish() {
 
+	}
+
+	public void setSortedStepList(ArrayList<String> sortedStepList) {
+		this.sortedList = sortedStepList;
 	}
 
 }

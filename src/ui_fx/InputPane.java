@@ -61,6 +61,14 @@ public class InputPane extends GridPane implements EventHandler<ActionEvent> {
 
 	}
 
+	public int getSelectedSize() {
+		try {
+			return arraySizeCBox.getSelectionModel().getSelectedItem();
+		} catch (NullPointerException e) {
+			return 0;
+		}
+	}
+
 	@Override
 	public void handle(ActionEvent e) {
 		if (e.getSource() == sortButton) {
