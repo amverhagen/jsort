@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Bubble {
 
 	public static int[] getSortedList(int[] unsorted) {
-		int[] sorted = unsorted;
+		int[] sorted = unsorted.clone();
 		for (int i = sorted.length; i > 0; i--) {
 			for (int j = 0; j < (i - 1); j++) {
 				if (sorted[j] > sorted[j + 1]) {
@@ -20,15 +20,16 @@ public class Bubble {
 	}
 
 	public static ArrayList<String> getSortedStepList(int[] unsorted) {
+		int[] original = unsorted.clone();
 		ArrayList<String> sorted = new ArrayList<String>();
-		for (int i = unsorted.length; i > 0; i--) {
+		for (int i = original.length; i > 0; i--) {
 			for (int j = 0; j < (i - 1); j++) {
-				if (unsorted[j] > unsorted[j + 1]) {
-					int temp = unsorted[j];
-					unsorted[j] = unsorted[j + 1];
-					unsorted[j + 1] = temp;
-					sorted.add("Swapped " + temp + " and " + unsorted[j]);
-					sorted.add(Arrays.toString(unsorted));
+				if (original[j] > original[j + 1]) {
+					int temp = original[j];
+					original[j] = original[j + 1];
+					original[j + 1] = temp;
+					sorted.add("Swapped " + temp + " and " + original[j]);
+					sorted.add(Arrays.toString(original));
 				}
 			}
 		}

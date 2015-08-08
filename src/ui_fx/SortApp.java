@@ -38,9 +38,6 @@ public class SortApp extends Application {
 	protected void setToOutput() {
 		unsorted = ArrayCreator.getRandomIntArray(inputPane.getSelectedSize());
 		sortedStepList = Bubble.getSortedStepList(unsorted);
-		for(int i = 0; i < unsorted.length; i++){
-			System.out.println();
-		}
 		outputPane.setSortedStepList(sortedStepList);
 		scene.setRoot(outputPane);
 	}

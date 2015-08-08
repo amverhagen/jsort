@@ -60,20 +60,32 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent e) {
 		if (e.getSource() == stepButton) {
-			step();
+			this.step();
 		} else if (e.getSource() == finishButton) {
 			this.finish();
 		} else if (e.getSource() == newButton) {
-			app.setToInput();
+			this.setToNew();
 		}
 	}
 
 	private void step() {
-
+		if (sortedList.size() >= 2) {
+			list.getItems().add(sortedList.remove(0));
+			list.getItems().add(sortedList.remove(0));
+		}
 	}
 
 	private void finish() {
+		for (int i = 0; i < sortedList.size(); i++) {
+			System.out.println(sortedList.size());
+			list.getItems().add(sortedList.get(i));
+		}
+		sortedList.clear();
+	}
 
+	private void setToNew() {
+		list.getItems().clear();
+		app.setToInput();
 	}
 
 	public void setSortedStepList(ArrayList<String> sortedStepList) {
