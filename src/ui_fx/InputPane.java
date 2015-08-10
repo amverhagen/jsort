@@ -1,5 +1,6 @@
 package ui_fx;
 
+import sorters.SortType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +26,7 @@ public class InputPane extends GridPane implements EventHandler<ActionEvent> {
 	private RadioButton bubbleButton;
 	private RadioButton quickButton;
 	private ToggleGroup group;
+	private Text warningLabel;
 
 	public InputPane(SortApp app) {
 		super();
@@ -59,6 +61,8 @@ public class InputPane extends GridPane implements EventHandler<ActionEvent> {
 		sortButton.setMaxWidth(Double.MAX_VALUE);
 		this.add(sortButton, 0, 5, 2, 1);
 
+		warningLabel = new Text("");
+		this.add(warningLabel, 0, 6);
 	}
 
 	public int getSelectedSize() {
@@ -69,10 +73,33 @@ public class InputPane extends GridPane implements EventHandler<ActionEvent> {
 		}
 	}
 
+	public SortType getSortType() {
+		try {
+			if (group.getSelectedToggle().equals(mergeButton)) {
+				return SortType.MERGE;
+			} else if (group.getSelectedToggle().equals(bubbleButton)) {
+				return SortType.BUBBLE;
+			} else if (group.getSelectedToggle().equals(quickButton)) {
+				return SortType.QUICK;
+			}
+		} catch (NullPointerException e) {
+			return null;
+		}
+		return null;
+	}
+
 	@Override
 	public void handle(ActionEvent e) {
 		if (e.getSource() == sortButton) {
-			app.setToOutput();
+			int arraySize = this.getSelectedSize();
+			SortType type = this.getSortType();
+			if (arraySize == 0) {
+				warningLabel.setText("Must enter arraysize.");
+			} else if (type == null) {
+				warningLabel.setText("Must select a sort type.");
+			} else {
+				app.setToOutput(arraySize, type);
+			}
 		}
 	}
 }

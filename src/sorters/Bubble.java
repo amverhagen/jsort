@@ -22,6 +22,8 @@ public class Bubble {
 	public static ArrayList<String> getSortedStepList(int[] unsorted) {
 		int[] original = unsorted.clone();
 		ArrayList<String> sorted = new ArrayList<String>();
+		sorted.add("Init array:");
+		sorted.add(Arrays.toString(original));
 		for (int i = original.length; i > 0; i--) {
 			for (int j = 0; j < (i - 1); j++) {
 				if (original[j] > original[j + 1]) {
