@@ -3,12 +3,16 @@ package main;
 import java.util.Arrays;
 
 import sorters.Quick;
+import tools.ArrayTools;
 
 public class QuickTester {
 
 	public static void main(String args[]) {
-		int[] testArray = { 99, 20, 33, 2, 22, 33, 9 };
-		testArray = Quick.getSortedList(testArray);
-		System.out.println(Arrays.toString(testArray));
+		for (int i = 0; i < 15; i++) {
+			int[] testArray = ArrayTools.getRandomIntArray(i);
+			testArray = Quick.getSortedList(testArray);
+			System.out.println("final " + Arrays.toString(testArray));
+		}
+
 	}
 }

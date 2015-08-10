@@ -62,8 +62,7 @@ public class OutputPane extends GridPane implements EventHandler<ActionEvent> {
 	}
 
 	private void step() {
-		if (sortedList.size() >= 2) {
-			list.getItems().add(sortedList.remove(0));
+		if (sortedList.size() > 0) {
 			list.getItems().add(sortedList.remove(0));
 		}
 	}

@@ -3,6 +3,7 @@ package ui_fx;
 import java.util.ArrayList;
 
 import sorters.Bubble;
+import sorters.Quick;
 import sorters.SortType;
 import tools.ArrayTools;
 import javafx.application.Application;
@@ -45,7 +46,9 @@ public class SortApp extends Application {
 		} else if (type == SortType.MERGE) {
 
 		} else if (type == SortType.QUICK) {
-
+			sortedStepList = Quick.getSortedStepList(unsorted);
+			outputPane.setSortedStepList(sortedStepList);
+			scene.setRoot(outputPane);
 		}
 	}
 }

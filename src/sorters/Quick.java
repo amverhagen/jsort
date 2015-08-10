@@ -1,17 +1,19 @@
 package sorters;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import tools.ArrayTools;
 
 public class Quick {
+	private static ArrayList<String> stepList = new ArrayList<String>();
 
 	public static int[] getSortedList(int[] unsorted) {
-		System.out.println(Arrays.toString(unsorted));
-		if (unsorted.length == 1)
+		stepList.add("New array " + Arrays.toString(unsorted));
+		if (unsorted.length <= 1)
 			return unsorted;
 		int pivot = unsorted[unsorted.length - 1];
-		System.out.println("Pivot " + pivot);
+		stepList.add("Pivot is " + pivot);
 		int wall = 0;
 		for (int i = 0; i < unsorted.length - 1; i++) {
 			if (unsorted[i] <= pivot) {
@@ -23,14 +25,20 @@ public class Quick {
 		}
 		unsorted[unsorted.length - 1] = unsorted[wall];
 		unsorted[wall] = pivot;
-		System.out.println(Arrays.toString(unsorted));
-		System.out.println("Wall size " + wall);
+		stepList.add("After swaps:");
+		stepList.add(Arrays.toString(unsorted));
 		int[] firstHalf = ArrayTools.copyWithRange(unsorted, 0, wall);
-		System.out.println("First half  " + Arrays.toString(firstHalf));
 		firstHalf = Quick.getSortedList(firstHalf);
 		int[] secondHalf = Arrays.copyOfRange(unsorted, wall, unsorted.length);
-		System.out.println("Second half " + Arrays.toString(secondHalf));
 		secondHalf = Quick.getSortedList(secondHalf);
-		return ArrayTools.concatIntArrays(firstHalf, secondHalf);
+		int[] concated = ArrayTools.concatIntArrays(firstHalf, secondHalf);
+		stepList.add("Concated array:\n" + Arrays.toString(concated));
+		return concated;
+	}
+
+	public static ArrayList<String> getSortedStepList(int[] unsorted) {
+		stepList.clear();
+		getSortedList(unsorted);
+		return stepList;
 	}
 }
