@@ -10,7 +10,6 @@ public class Quick {
 
 	public static int[] getSortedList(int[] unsorted) {
 		stepList.add("New array " + Arrays.toString(unsorted));
-		System.out.println("Array: " + Arrays.toString(unsorted));
 		if (unsorted.length <= 1)
 			return unsorted;
 		int pivot = unsorted[unsorted.length - 1];

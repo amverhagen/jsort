@@ -7,7 +7,7 @@ import sorters.Merge;
 public class MergeTester {
 
 	public static void main(String[] args) {
-		int[] unsorted = { 3, 1, 10, 99, 4, 6, 5, 5 , 13, 21};
+		int[] unsorted = { 2,10,9,15,19,19,21,21,66,400,2};
 		unsorted = Merge.getSortedList(unsorted);
 		System.out.println(Arrays.toString(unsorted));
 
