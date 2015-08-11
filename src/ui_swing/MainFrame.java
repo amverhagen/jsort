@@ -2,6 +2,8 @@ package ui_swing;
 
 import javax.swing.JFrame;
 
+import sorters.SortType;
+
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private InputPanel inputPane;
@@ -14,7 +16,7 @@ public class MainFrame extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		inputPane = new InputPanel();
+		inputPane = new InputPanel(this);
 		outputPane = new OutputPanel();
 	}
 
@@ -22,8 +24,8 @@ public class MainFrame extends JFrame {
 		this.setContentPane(inputPane);
 		this.revalidate();
 	}
-	
-	public void setToOutPut(){
+
+	public void setToOutPut(int arraySize, SortType type) {
 		this.setContentPane(outputPane);
 		this.revalidate();
 	}
